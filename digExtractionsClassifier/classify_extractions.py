@@ -63,7 +63,7 @@ class ClassifyExtractions:
     def change_confidence(self, provenance, probability):
         if 'confidence' in provenance:
             confidence = provenance['confidence']
-            confidence['extraction'] = probability
+            confidence['embedding_probability'] = probability
 
     def get_classification_probability(self, feature_vectors):
         if(feature_vectors.ndim == 1):
