@@ -12,9 +12,11 @@ class DigExtractionsClassifier():
         self.metadata = {"classifier": "DigExtractionsClassifier"}
         self.extractor = classify_extractions.ClassifyExtractions(self.model, self.classification_field, self.embedding)
 
-    def classify(self, tokens):
-        tokens_with_probabilities = self.extractor.classify(tokens)
-        return tokens_with_probabilities
+    def classify(self, extractions):
+        if(self.classification_field in extractions):
+            self.extractor.classify(extractions[self.classification_field])
+        
+        return extractions
 
     def get_metadata(self):
         """Returns a copy of the metadata that characterizes this extractor"""
