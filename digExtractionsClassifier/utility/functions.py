@@ -87,7 +87,11 @@ def get_context(tokens, index, length, context_range, use_word_in_context):
 def get_vector_of_context(context, embeddings):
     context_vector = None
     for token in context:
-        word = token['value']
+        if not isinstance(token, basestring):
+            word = token['value']
+        else:
+            word = token
+
         if word not in embeddings: # is the word even in our embeddings?
             continue
 
@@ -100,6 +104,6 @@ def get_vector_of_context(context, embeddings):
     if(context_vector):
         return np.array(context_vector)
     else:
-        print "Have no context in the embeddings"
+        # print "Have no context in the embeddings"
         #Need to implement prior probability or increase the size of the window dynamically
         return np.array(embeddings.values()[0]) #Getting vector of any word in the dictionary

@@ -44,7 +44,7 @@ class ClassifyExtractions:
 
                             else:
                                 print "No context"
-                                print source
+                                # print source
                                 # exit()
 
         # for index, token in enumerate(tokens):
