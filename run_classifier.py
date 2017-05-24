@@ -11,10 +11,10 @@ extraction_classifiers = ['city', 'ethnicity', 'hair_color', 'name', 'eye_color'
 
 classifier_processor = ProcessClassifier(extraction_classifiers)
 
-properties = load_json_file('properties_non_cluster.json')
+properties = load_json_file('resources/properties_non_cluster.json')
 
-output = codecs.open('output_ground_truth.jl', 'w', 'utf-8')
-with codecs.open('ground_truth_extractions.jl', 'r', 'utf-8') as f:
+output = codecs.open('/Users/amandeep/Github/etk/etk/test_data/ground_truth_classified.jl', 'w', 'utf-8')
+with codecs.open('/Users/amandeep/Github/etk/etk/test_data/ground_truth_extractions.jl', 'r', 'utf-8') as f:
     for index, line in enumerate(f):
         result_doc = json.loads(line)
 

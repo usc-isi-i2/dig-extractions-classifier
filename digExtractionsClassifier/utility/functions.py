@@ -5,9 +5,8 @@ import sys
 import numpy as np
 from nltk.tokenize import sent_tokenize, word_tokenize
 
-from digExtractor.extractor import Extractor
-from digExtractor.extractor_processor import ExtractorProcessor
-from digTokenizerExtractor.tokenizer_extractor import TokenizerExtractor
+# from digExtractor.extractor_processor import ExtractorProcessor
+# from digTokenizerExtractor.tokenizer_extractor import TokenizerExtractor
 
 def load_embeddings(filename):
     filename = get_file_from_resources(filename)
@@ -27,22 +26,22 @@ def get_full_filename(current_file, filename):
 def get_file_from_resources(filename):
     cwd = os.getcwd()
     return os.path.join(cwd, 'resources', filename)
-
-def tokenize(text, method = 'dig'):
-    tokens = list()
-
-    if(method == 'nltk'):
-        for s in sent_tokenize(text):
-            word_tokens += word_tokenize(s)
-
-    elif(method == 'dig'):
-        doc = { 'string': text}
-        e = TokenizerExtractor()
-        ep = ExtractorProcessor().set_input_fields('string').set_output_field('output').set_extractor(e)
-        updated_doc = ep.extract(doc)
-        word_tokens = updated_doc['output'][0]['result'][0]['value']
-
-    return word_tokens
+#
+# def tokenize(text, method = 'dig'):
+#     tokens = list()
+#
+#     if(method == 'nltk'):
+#         for s in sent_tokenize(text):
+#             word_tokens += word_tokenize(s)
+#
+#     elif(method == 'dig'):
+#         doc = { 'string': text}
+#         e = TokenizerExtractor()
+#         ep = ExtractorProcessor().set_input_fields('string').set_output_field('output').set_extractor(e)
+#         updated_doc = ep.extract(doc)
+#         word_tokens = updated_doc['output'][0]['result'][0]['value']
+#
+#     return word_tokens
 
 def value_to_lower(token):
     token['value'] = token.get('value').lower()
