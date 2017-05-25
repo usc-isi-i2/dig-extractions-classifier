@@ -10,9 +10,9 @@ from sklearn.externals import joblib
 
 class ProcessClassifier():
   """ Class to process the classifiers """
-  def __init__(self, extraction_classifiers):
+  def __init__(self, extraction_classifiers, embeddings_file):
     self.extraction_classifiers = extraction_classifiers
-    self.embeddings_file = 'unigram-part-00000-v2.json'
+    self.embeddings_file = embeddings_file
     self.__initialize()
 
   def __initialize(self):
