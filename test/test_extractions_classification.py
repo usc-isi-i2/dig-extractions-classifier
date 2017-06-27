@@ -1,10 +1,12 @@
-import unittest
 import codecs
-from sklearn.externals import joblib
 import json
-from digExtractor.extractor_processor import ExtractorProcessor
-from digExtractionsClassifier import dig_extractions_classifier
+import unittest
+
 import digExtractionsClassifier.utility.functions as utility_functions
+from digExtractionsClassifier import dig_extractions_classifier
+from digExtractor.extractor_processor import ExtractorProcessor
+from sklearn.externals import joblib
+
 
 class TestExtractionsClassifier(unittest.TestCase):
 
