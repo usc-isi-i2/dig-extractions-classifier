@@ -7,7 +7,6 @@ from sklearn.externals import joblib
 
 class ProcessClassifier():
     """ Class to process the classifiers """
-
     def __init__(self, extraction_classifiers):
         self.extraction_classifiers = extraction_classifiers
         self.embeddings_file = 'unigram-part-00000-v2.json'
